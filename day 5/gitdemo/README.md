@@ -12,6 +12,4 @@ Technology: Java
 Version Control: Git and GitHub
 
 
-
-Developer A's version: Project Status: :D
-Developer B's version: Project Status: :D
+Project Status: Testing In Progress - Development Completed
