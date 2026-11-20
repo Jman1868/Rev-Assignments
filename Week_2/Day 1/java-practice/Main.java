@@ -3,29 +3,25 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        String string = "abcabcbb";
-        Set<Character> set = new HashSet<>();
+        String string = "Java is easy to learn";
+        StringBuilder result = new StringBuilder();
+        int stringend =string.length();
+        for(int i = string.length()-1; i >=0; i--){
 
-        int left = 0;
-        int right = 0;
-        int counter = 0;
+            char s = string.charAt(i);
+            if(s== ' '){
+               if (result.length()>0) {
+                 result.append(' ');
+               }
+               result.append(string, i+1,stringend);
 
-        while (right < string.length()) {
-
-            char s = string.charAt(right);
-
-            if (!set.contains(s)) {
-                set.add(s);
-                right++;
-                counter = Math.max(counter, right - left);
-            } else {
-                set.remove(string.charAt(left));
-                left++;
+               stringend=i;
             }
         }
 
-        System.out.println("Input:    " + string);
-        System.out.println("Output:   " + counter);
-        System.out.println("Substring: " + string.substring(left, right)); // note below
+        if (result.length() > 0) result.append(' ');
+        result.append(string, 0, stringend);
+        System.out.println(result);
+
     }
 }
