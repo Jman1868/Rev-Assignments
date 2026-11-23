@@ -1,0 +1,51 @@
+# Java build output and compiled files
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+
+# Java package managers
+target/
+build/
+out/
+.gradle/
+dependency-reduced-pom.xml
+
+# Eclipse IDE metadata and generated files
+.metadata/
+.settings/
+.classpath
+.project
+.loadpath
+.recommenders/
+.apt_generated/
+.apt_generated_tests/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~
+.factorypath
+.externalToolBuilders/
+RemoteSystemsTempFiles/
+
+# IDE and editor files
+.idea/
+*.iml
+.vscode/
+
+# Logs and crash reports
+*.log
+*.log.*
+*.ctxt
+
+# OS-generated files
+.DS_Store
+Thumbs.db
