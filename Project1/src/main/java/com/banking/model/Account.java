@@ -2,14 +2,14 @@ package com.banking.model;
 
 import java.time.LocalDate;
 
-abstract class Account {
+public abstract class Account {
 
     private long accountNumber;
     private int customerId;
     private double accountBalance;
     private LocalDate createdDate;
 
-    public Account(int accountNumber, int customerId, double accountBalance, LocalDate createdDate) {
+    public Account(long accountNumber, int customerId, double accountBalance, LocalDate createdDate) {
         this.accountNumber = accountNumber;
         this.customerId = customerId;
         this.accountBalance = accountBalance;
