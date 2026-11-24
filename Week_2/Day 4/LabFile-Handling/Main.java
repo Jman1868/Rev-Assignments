@@ -26,7 +26,7 @@ public class Main {
             Employee[] readEmployees = (Employee[]) input.readObject();
 
             for (Employee employee : readEmployees) {
-            System.out.println(employee);
+                System.out.println(employee);
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
