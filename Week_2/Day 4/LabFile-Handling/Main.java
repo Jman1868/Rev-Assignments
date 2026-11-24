@@ -22,8 +22,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        try (ObjectInputStream input =
-            new ObjectInputStream(new FileInputStream("employees.dat"))) {
+        try (ObjectInputStream input = new ObjectInputStream(new FileInputStream("employees.dat"))) {
             Employee[] readEmployees = (Employee[]) input.readObject();
 
             for (Employee employee : readEmployees) {
