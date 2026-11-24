@@ -1,0 +1,23 @@
+Question: What is the difference between throw and throws?:
+
+Answer: 
+throw actually throws and exception. It is mianly used inside of a method or code block.
+throws is used in the method signature. It tells the caller that the method could throw an exception.
+
+throw can only do one exception object at a time
+throws can do multiple exceptions
+
+
+Question: Why did the compiler force you to handle AttendanceShortageException but not InvalidMarksException?
+Answer: because AttendanceShortageException was a checked exception wherase invalid marksException was unchecked.
+
+
+Question: When does the finally block run?
+Answer: At the end of the try catch block, before control leaves the method, including when an exception occurs.
+
+Question: Why is it better to check email == null than to catch NullPointerException?
+Answer: A missing email is a foreseeable state, so checking for null is clearer and prevents the method from trying to call email.toLowerCase(). Exceptions should be reserved for exceptional situations. NullPointerException is unchecked and would not be forced by the compiler.
+
+
+Question: Name one more custom exception the portal could use, and say whether it should be checked or unchecked.
+Answer: I would add InvalidSubjectIndexException. It could extend Exception, making it checked, because an invalid index is a recoverable external input problem. The caller should handle it and return a valid subject or display an error.
