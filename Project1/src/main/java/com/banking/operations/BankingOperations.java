@@ -3,6 +3,8 @@ package com.banking.operations;
 import java.util.ArrayList;
 
 import com.banking.BankOperations;
+import com.banking.exception.InsufficientBalanceException;
+import com.banking.exception.InvalidAccountException;
 import com.banking.model.Account;
 import com.banking.model.Customer;
 
@@ -35,12 +37,16 @@ public class BankingOperations implements BankOperations {
     }
 
     @Override 
-    public void withdraw(long accountNumber, double amount){
-        
+    public void withdraw(long accountNumber, double amount) throws InsufficientBalanceException, InvalidAccountException{
+        double accbalance = checkBalance(accountNumber);
+        if (amount > accbalance) 
+        {
+            throw new InsufficientBalanceException("Insufficient funds!");  
+        }
     }
 
     @Override 
-    public double checkBalance(long accountNumber){
+    public double checkBalance(long accountNumber) throws InvalidAccountException{
         
         for (Account account : accounts){
             long accnumber = account.getAccountNumber();
@@ -48,7 +54,7 @@ public class BankingOperations implements BankOperations {
                 return account.getAccountBalance();
             }
         }
-        throw new IllegalArgumentException("Account not found!");
+         throw new InvalidAccountException("Account not found!");
     }
 
     @Override 

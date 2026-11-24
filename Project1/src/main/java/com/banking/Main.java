@@ -4,6 +4,7 @@ import com.banking.utility.InputUtility;
 import com.banking.operations.BankingOperations;
 import com.banking.model.Customer;
 import com.banking.utility.InputUtility;
+import com.banking.exception.InvalidAccountException;
 import com.banking.model.Account;
 import com.banking.model.SavingsAccount;
 import java.time.LocalDate;
@@ -14,10 +15,6 @@ public class Main {
 
         boolean running = true;
         BankingOperations bankingOperations = new BankingOperations();
-
-
-
-
 
         while (running) {
 
@@ -57,9 +54,14 @@ public class Main {
                 case 6:
                     long accountNumber = InputUtility.getLong("Enter account number: ");
 
-                    double balance = bankingOperations.checkBalance(accountNumber);
+                    double balance = 0;
+                    try {
+                        balance = bankingOperations.checkBalance(accountNumber);
+                    } catch (InvalidAccountException e) {
+                        e.printStackTrace();
+                        System.out.println("Account balance: $" + balance);
+                    }
 
-                    System.out.println("Account balance: $" + balance);
                     break;
 
                 case 9:
